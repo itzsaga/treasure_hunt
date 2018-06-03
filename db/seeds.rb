@@ -10,8 +10,8 @@ end
 
 10.times do
   Product.create(
-    name: Faker::Hipster.sentence(3)
-    description: Faker::Hipster.paragraph
+    name: Faker::Hipster.sentence(3),
+    description: Faker::Hipster.paragraph,
     user_id: rand(@users)
   )
 end
