@@ -12,7 +12,7 @@ Must adhere to best practices and latest Ruby on Rails conventions.
 [ ] Ability to search for a product and have the list dynamically update.
 [ ] Ability to view product details.
 [X] Ability to access product lists through an API.
-[ ] Ability to access a product’s details through an API.
+[X] Ability to access a product’s details through an API.
 [ ] Ability to create an account and login.
 [ ] Ability to subscribe to products.
 [ ] Ability to view only products I am subscribed to.
