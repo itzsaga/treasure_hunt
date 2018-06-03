@@ -21,3 +21,20 @@ end
     name: Faker::Hipster.word
   )
 end
+
+@products = Product.all.count
+@tags = Tag.all.count
+
+20.times do
+  ProductTag.create(
+    product_id: rand(1..@products),
+    tag_id: rand(1..@tags)
+  )
+end
+
+20.times do
+  ProductUser.create(
+    product_id: rand(1..@products),
+    user_id: rand(1..@users)
+  )
+end
