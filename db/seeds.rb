@@ -12,7 +12,7 @@ end
   Product.create(
     name: Faker::Hipster.sentence(3),
     description: Faker::Hipster.paragraph,
-    user_id: rand(@users)
+    user_id: rand(1..@users)
   )
 end
 
