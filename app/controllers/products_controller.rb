@@ -22,4 +22,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     render json: @product, include: [:tags]
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    render json: @product.id
+  end
 end
