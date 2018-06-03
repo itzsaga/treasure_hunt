@@ -2,6 +2,18 @@ import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 
 class App extends Component {
+  state = {}
+
+  componentDidMount() {
+    fetch(`http://localhost:3000/api/products`)
+      .then(res => res.json())
+      .then(products => {
+        this.setState({
+          products: products
+        })
+      })
+  }
+
   render() {
     return (
       <div>
