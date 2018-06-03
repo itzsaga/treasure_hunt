@@ -1,4 +1,6 @@
-class ProductsController < ApplicationController
+class Api::ProductsController < ApplicationController
+  before_action :current_product, only: %i[update show destroy]
+
   def index
     @products = Product.all
     render json: @products, include: [:tags]
@@ -12,19 +14,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       render json: @product
     end
   end
 
   def show
-    @product = Product.find(params[:id])
     render json: @product, include: [:tags]
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     render json: @product.id
   end
@@ -33,5 +32,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :user_id, item_ids:[])
+  end
+
+  def current_product
+    @product = Product.find(params[:id])
   end
 end
