@@ -25,11 +25,8 @@ end
 @products = Product.all.count
 @tags = Tag.all.count
 
-20.times do
-  ProductTag.create(
-    product_id: rand(1..@products),
-    tag_id: rand(1..@tags)
-  )
+Product.all.each do |product|
+  product.tags.push(Tag.find(rand(1..@tags)))
 end
 
 20.times do
