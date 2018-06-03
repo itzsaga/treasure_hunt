@@ -28,4 +28,10 @@ class ProductsController < ApplicationController
     @product.destroy
     render json: @product.id
   end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :description, :user_id)
+  end
 end
