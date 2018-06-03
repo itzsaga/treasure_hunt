@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_03_031810) do
+ActiveRecord::Schema.define(version: 2018_06_03_035506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "product_tags", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["product_id"], name: "index_product_tags_on_product_id"
+    t.index ["tag_id"], name: "index_product_tags_on_tag_id"
+  end
+
+  create_table "product_users", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["product_id"], name: "index_product_users_on_product_id"
+    t.index ["user_id"], name: "index_product_users_on_user_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -21,20 +35,6 @@ ActiveRecord::Schema.define(version: 2018_06_03_031810) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "products_tags", id: false, force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "tag_id", null: false
-    t.index ["product_id"], name: "index_products_tags_on_product_id"
-    t.index ["tag_id"], name: "index_products_tags_on_tag_id"
-  end
-
-  create_table "products_users", id: false, force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["product_id"], name: "index_products_users_on_product_id"
-    t.index ["user_id"], name: "index_products_users_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
