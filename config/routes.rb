@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tags
-  resources :products
-  resources :users
+  namespace :api do 
+    resources :tags
+    resources :products
+    resources :users
+  end
 end
