@@ -28,8 +28,13 @@
   },
   "homepage": "https://github.com/itzsaga/my-react-starter#readme",
   "dependencies": {
+    "@reach/router": "^1.0.5",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "react-fuzzy": "^0.5.2",
+    "redux": "^4.0.0",
+    "redux-bees": "^0.1.9",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
