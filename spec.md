@@ -1,6 +1,6 @@
 **Criteria**
-[ ] Must be written in the latest version of Ruby on Rails.
-Must adhere to best practices and latest Ruby on Rails conventions.
+[X] Must be written in the latest version of Ruby on Rails.
+[ ] Must adhere to best practices and latest Ruby on Rails conventions.
 [ ] Must have tests where tests are necessary.
 [ ] Must take high traffic into consideration.
 
