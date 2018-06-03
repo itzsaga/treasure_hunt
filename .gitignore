@@ -23,7 +23,7 @@
 
 # React App
 # Node
-client/node_modules/
+/client/node_modules/
 
 # Project
-client/dist/
+/client/dist/
