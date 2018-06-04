@@ -7,7 +7,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def latest
-    @products = Product.last(10).reverse
+    @products = Product.last(5).reverse
     render json: @products
   end
 
