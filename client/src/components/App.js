@@ -2,26 +2,27 @@ import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
 
-import { getLatest } from '../redux/actions/productActions'
+import { getAll, getLatest } from '../redux/actions/productActions'
 
 import Header from './Header'
 import Hero from './Hero'
 
 class App extends Component {
   state = {
-    search: false
+    latest: [],
+    all: [],
+    search: false,
   }
 
   componentDidMount() {
     this.props.getLatest()
+    this.props.getAll()
   }
 
   render() {
-    if (this.props.latest[0]) {
-      var latest = this.props.latest[0].map(product => {
-        return <li key={product.id}>{product.name}</li>
-      })
-    }
+    const latest = this.props.latest.map(product => {
+      return <li key={product.id}>{product.name}</li>
+    })
     return (
       <div>
         <Header />
@@ -36,8 +37,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    latest: state.products
+    latest: state.products.slice(Math.max(state.products.length - 5, 1)),
+    products: state.products,
   }
 }
 
-export default connect(mapStateToProps, { getLatest })(App)
+export default connect(mapStateToProps, { getAll, getLatest })(App)
