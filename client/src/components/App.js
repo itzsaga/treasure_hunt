@@ -5,9 +5,12 @@ import { connect } from 'react-redux'
 import { getLatest } from '../redux/actions/productActions'
 
 import Header from './Header'
+import Hero from './Hero'
 
 class App extends Component {
-  state = {}
+  state = {
+    search: false
+  }
 
   componentDidMount() {
     this.props.getLatest()
@@ -22,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        {!this.state.search && <Hero />}
         <div className="container">
           {latest}
         </div>
