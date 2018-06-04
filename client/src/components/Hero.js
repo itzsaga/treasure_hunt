@@ -6,12 +6,12 @@ const Hero = () =>
     <div className="hero-body">
       <div className="container">
         <div className="level">
-          <div>
+          <div id="hero-left">
             <h1 className="title">
-              Hero title
+              Discover your next favorite thing
             </h1>
             <h2 className="subtitle">
-              Hero subtitle
+              Treasure Hunt surfaces the best new products, every day. It's a place for product-loving enthusiasts to share and geek out about the latest mobile apps, websites, hardware projects, and tech creations.
             </h2>
           </div>
           <div className="level-right">
