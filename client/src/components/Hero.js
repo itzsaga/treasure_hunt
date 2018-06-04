@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../images/th-logo.jpg'
 
 const Hero = () =>
   <section className="hero is-medium">
@@ -15,7 +16,7 @@ const Hero = () =>
           </div>
           <div className="level-right">
             <div className="level-item">
-              Hero Logo
+              <img src={logo} alt={"treasure hunt logo"} />
             </div>
           </div>
         </div>
