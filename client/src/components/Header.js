@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Header extends Component {
   render() {
     return (
-      <div className="container is-widescreen">
+      <div className="container">
         <nav className="level navbar">
           <div className="level-left">
             <div className="level-item">
