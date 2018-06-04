@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Router } from '@reach/router'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 import App from './components/App'
@@ -8,12 +7,9 @@ import store from './redux/store'
 
 import './styles/base.sass'
 
-ReactDOM.render(
+render(
   <Provider store={store}>
-    <Router>
-      <App path="/">
-      </App>
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('app')
 )
