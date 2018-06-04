@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from '@reach/router'
+import icon from '../images/th-icon.jpg'
 
 class Header extends Component {
   render() {
@@ -7,7 +9,9 @@ class Header extends Component {
         <nav className="level navbar">
           <div className="level-left">
             <div className="level-item">
-              Logo
+              <Link to="/">
+                <img id="th-icon" src={icon} alt={"treasure hunt icon"} />
+              </Link>
             </div>
             <div className="level-item">
               Search Bar
@@ -15,10 +19,10 @@ class Header extends Component {
           </div>
           <div className="level-right">
             <div className="level-item">
-              Log In
+              <button className="button is-primary">Log In</button>
             </div>
             <div className="level-item">
-              Sign Up
+              <button className="button is-primary">Sign Up</button>
             </div>
           </div>
         </nav>
