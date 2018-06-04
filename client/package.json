@@ -30,12 +30,11 @@
   "dependencies": {
     "@reach/router": "^1.0.5",
     "bulma": "^0.7.1",
+    "fuse.js": "^3.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-fuzzy": "^0.5.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-bees": "^0.1.9",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.2.1"
   },
