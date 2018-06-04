@@ -9,7 +9,7 @@
 [ ] Ability to create, edit, and delete a product.
 [ ] Ability to tag a product.
 [ ] Ability to filter products based on tags.
-[ ] Ability to search for a product and have the list dynamically update.
+[X] Ability to search for a product and have the list dynamically update.
 [ ] Ability to view product details.
 [X] Ability to access product lists through an API.
 [X] Ability to access a product’s details through an API.

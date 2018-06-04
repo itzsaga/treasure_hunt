@@ -6,7 +6,6 @@ import icon from '../images/th-icon.jpg'
 
 class Header extends Component {
   state = {
-    results: [],
     searchInput: '',
     placeholderText: 'Search',
   }
@@ -15,8 +14,8 @@ class Header extends Component {
     const fuse = new Fuse(this.props.products, fuseOptions)
     this.setState({
       searchInput: e.target.value,
-      results: fuse.search(e.target.value)
     })
+    this.props.updateResults(fuse.search(e.target.value))
     e.target.value !== '' ? this.props.searching(true) : this.props.searching(false)
   }
 

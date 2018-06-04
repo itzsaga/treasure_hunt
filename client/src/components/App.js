@@ -6,12 +6,14 @@ import { getAll, getLatest } from '../redux/actions/productActions'
 
 import Header from './Header'
 import Hero from './Hero'
+import ProductList from './ProductList'
 
 class App extends Component {
   state = {
     latest: [],
     all: [],
     search: false,
+    searchResults: [],
   }
 
   componentDidMount() {
@@ -25,16 +27,20 @@ class App extends Component {
     })
   }
 
-  render() {
-    const latest = this.props.latest.map(product => {
-      return <li key={product.id}>{product.name}</li>
+  updateResults = (results) => {
+    this.setState({
+      searchResults: results
     })
+  }
+
+  render() {
     return (
       <div>
-        <Header products={this.props.products} searching={this.searching} />
+        <Header products={this.props.products} searching={this.searching} updateResults={this.updateResults} />
         {!this.state.search && <Hero />}
         <div className="container">
-          {!this.state.search && latest}
+          {!this.state.search && <ProductList products={this.props.latest} searching={this.state.search} />}
+          {this.state.search && <ProductList products={this.state.searchResults} searching={this.state.search} />}
         </div>
       </div>
     )
