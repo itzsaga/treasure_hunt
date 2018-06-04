@@ -6,6 +6,11 @@ class Api::ProductsController < ApplicationController
     render json: @products, include: [:tags]
   end
 
+  def latest
+    @products = Product.last(10).reverse
+    render json: @products
+  end
+
   def create
     @product = Product.new
     if @product.save
