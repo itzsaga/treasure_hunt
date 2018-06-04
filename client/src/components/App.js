@@ -19,16 +19,22 @@ class App extends Component {
     this.props.getAll()
   }
 
+  searching = (bool) => {
+    this.setState({
+      search: bool
+    })
+  }
+
   render() {
     const latest = this.props.latest.map(product => {
       return <li key={product.id}>{product.name}</li>
     })
     return (
       <div>
-        <Header products={this.props.products} />
+        <Header products={this.props.products} searching={this.searching} />
         {!this.state.search && <Hero />}
         <div className="container">
-          {latest}
+          {!this.state.search && latest}
         </div>
       </div>
     )

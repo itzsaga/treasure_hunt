@@ -17,6 +17,7 @@ class Header extends Component {
       searchInput: e.target.value,
       results: fuse.search(e.target.value)
     })
+    e.target.value !== '' ? this.props.searching(true) : this.props.searching(false)
   }
 
   render() {
