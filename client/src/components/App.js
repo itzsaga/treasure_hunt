@@ -25,7 +25,7 @@ class App extends Component {
     })
     return (
       <div>
-        <Header />
+        <Header products={this.props.products} />
         {!this.state.search && <Hero />}
         <div className="container">
           {latest}
