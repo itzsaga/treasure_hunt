@@ -1,27 +1,36 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
+import { connect } from 'react-redux'
+
+import { getLatest } from '../redux/actions/productActions'
 
 class App extends Component {
   state = {}
 
   componentDidMount() {
-    fetch(`http://localhost:3000/api/products`)
-      .then(res => res.json())
-      .then(products => {
-        this.setState({
-          products: products
-        })
-      })
+    this.props.getLatest()
   }
 
   render() {
+    if (this.props.latest[0]) {
+      var latest = this.props.latest[0].map(product => {
+        return <li key={product.id}>{product.name}</li>
+      })
+    }
     return (
       <div>
         <h1>Welcome to My Starter App</h1>
         <h3>It has hot module reloading built in!</h3>
+        {latest}
       </div>
     )
   }
 }
 
-export default hot(module)(App)
+const mapStateToProps = state => {
+  return {
+    latest: state.products
+  }
+}
+
+export default connect(mapStateToProps, { getLatest })(App)

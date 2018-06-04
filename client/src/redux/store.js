@@ -1,7 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
+import products from './reducers/productsReducer'
+
 const rootReducer = combineReducers({
+  products,
 })
 
 export default createStore(
