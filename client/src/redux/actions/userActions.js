@@ -7,13 +7,11 @@ export const createUser = user => {
         'Content-Type': 'application/json',
       },
     })
-      .then(res => {
-        return res.json()
-      })
-      .then(({ user, token }) => {
-        dispatch({ type: 'AUTH_COMPLETE', user })
-        localStorage.setItem('token', token)
-      })
+    .then(res => res.json())
+    .then(({ user, token }) => {
+      dispatch({ type: 'AUTH_COMPLETE', user })
+      localStorage.setItem('token', token)
+    })
   }
 }
 
@@ -26,10 +24,10 @@ export const login = user => {
         'Content-Type': 'application/json',
       },
     })
-      .then(res => res.json())
-      .then(({ user, token }) => {
-        dispatch({ type: 'AUTH_COMPLETE', user })
-        localStorage.setItem('token', token)
-      })
+    .then(res => res.json())
+    .then(({ user, token }) => {
+      dispatch({ type: 'AUTH_COMPLETE', user })
+      localStorage.setItem('token', token)
+    })
   }
 }
