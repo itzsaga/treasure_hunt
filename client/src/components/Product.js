@@ -6,13 +6,13 @@ class Product extends Component {
     product: {}
   }
 
-  componentDidMount() {
-    const products = this.props.products
-    const product = products.find(p => p.id == this.props.productId)
-    this.setState({
-      product: product
-    })
-  }
+  // componentDidMount() {
+  //   const products = this.props.products
+  //   const product = products.find(p => p.id == this.props.productId)
+  //   this.setState({
+  //     product: product
+  //   })
+  // }
 
   render() {
     return(
