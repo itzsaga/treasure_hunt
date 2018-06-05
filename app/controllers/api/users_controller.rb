@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      token = Auth.encode(@user.id)
+      token = encode(@user.id)
       render json: { token: token, user: @user }
     else
       # send error
