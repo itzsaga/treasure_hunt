@@ -16,7 +16,7 @@ class UserForm extends Component {
           this.props.history.push('/')
         })
       : this.props.login(this.state).then(() => {
-          this.setState({ name: '', email: '', password: '' })
+          this.setState({ email: '', password: '' })
           this.props.history.push('/')
         })
   }
