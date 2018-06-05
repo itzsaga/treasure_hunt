@@ -11,7 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'jwt'
-gem 'active_model_serializers', '0.9.3'
+gem 'active_model_serializers', '~> 0.10'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
