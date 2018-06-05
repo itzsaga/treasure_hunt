@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import Fuse from 'fuse.js'
 import { fuseOptions } from '../fuseOptions'
 import icon from '../images/th-icon.jpg'
