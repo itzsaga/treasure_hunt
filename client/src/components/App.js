@@ -7,8 +7,10 @@ import Product from './Product'
 
 const App = () =>
   <Router>
-    <Route exact path="/" component={Home} />
-    <Route path="product/:productId" component={Product} />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="product/:productId" component={Product} />
+    </Switch>
   </Router>
 
 export default App
