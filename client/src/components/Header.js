@@ -35,10 +35,14 @@ class Header extends Component {
           </div>
           <div className="level-right">
             <div className="level-item">
-              <button className="button is-primary">Log In</button>
+              <Link to="/login">
+                <button className="button is-primary">Log In</button>
+              </Link>
             </div>
             <div className="level-item">
-              <button className="button is-primary">Sign Up</button>
+              <Link to="/signup">
+                <button className="button is-primary">Sign Up</button>
+              </Link>
             </div>
           </div>
         </nav>
