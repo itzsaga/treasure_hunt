@@ -31,3 +31,8 @@ export const login = user => {
     })
   }
 }
+
+export const logout = () => {
+  localStorage.removeItem('token');
+  return { type: 'LOGOUT' }
+}

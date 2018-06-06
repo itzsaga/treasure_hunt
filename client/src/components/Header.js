@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Fuse from 'fuse.js'
+import { logout } from '../redux/actions/userActions'
 
 import { fuseOptions } from '../fuseOptions'
 import icon from '../images/th-icon.jpg'
@@ -19,6 +20,10 @@ class Header extends Component {
     })
     this.props.updateResults(fuse.search(e.target.value))
     e.target.value !== '' ? this.props.searching(true) : this.props.searching(false)
+  }
+
+  handleLogOut = e => {
+    this.props.logout()
   }
 
   render() {
@@ -42,7 +47,7 @@ class Header extends Component {
                 Hello, {this.props.currentUser.name}
               </div>
               <div className="level-item">
-                <button className="button is-primary">Log Out</button>
+                <button onClick={this.handleLogOut} className="button is-primary">Log Out</button>
               </div>
             </Fragment> :
             <Fragment>
@@ -71,4 +76,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, { logout })(Header)
