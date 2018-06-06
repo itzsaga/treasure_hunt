@@ -5,8 +5,8 @@ import UserForm from './UserForm'
 class Login extends Component {
   render() {
     return (
-      <div>
-        <h1>Login</h1>
+      <div className='container'>
+        <h2 className="title is-2">Login</h2>
         <UserForm history={this.props.history} type="login" />
       </div>
     )

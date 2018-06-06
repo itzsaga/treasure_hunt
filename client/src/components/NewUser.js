@@ -5,8 +5,8 @@ import UserForm from './UserForm'
 class NewUser extends Component {
   render() {
     return (
-      <div>
-        <h1>Create a new User</h1>
+      <div className='container'>
+        <h2 className="title is-2">Register</h2>
         <UserForm type="signup" history={this.props.history} />
       </div>
     )
