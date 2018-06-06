@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Fuse from 'fuse.js'
 import { logout } from '../redux/actions/userActions'
@@ -36,9 +36,9 @@ class Header extends Component {
                 <img id="th-icon" src={icon} alt={"treasure hunt icon"} />
               </Link>
             </div>
-            <div className="level-item">
+            {this.props.location.pathname === "/" && <div className="level-item">
               <input type="text" value={this.state.searchInput} onChange={this.handleChange} placeholder={this.state.placeholderText} />
-            </div>
+            </div>}
           </div>
           <div className="level-right">
             {this.props.isAuthenticated ?
@@ -76,4 +76,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { logout })(Header)
+export default withRouter(connect(mapStateToProps, { logout })(Header))
