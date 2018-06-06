@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Fuse from 'fuse.js'
@@ -36,16 +36,27 @@ class Header extends Component {
             </div>
           </div>
           <div className="level-right">
-            <div className="level-item">
-              <Link to="/login">
-                <button className="button is-primary">Log In</button>
-              </Link>
-            </div>
-            <div className="level-item">
-              <Link to="/signup">
-                <button className="button is-primary">Sign Up</button>
-              </Link>
-            </div>
+            {this.props.isAuthenticated ?
+            <Fragment>
+              <div className="level-item">
+                Hello, {this.props.currentUser.name}
+              </div>
+              <div className="level-item">
+                <button className="button is-primary">Log Out</button>
+              </div>
+            </Fragment> :
+            <Fragment>
+              <div className="level-item">
+                <Link to="/login">
+                  <button className="button is-primary">Log In</button>
+                </Link>
+              </div>
+              <div className="level-item">
+                <Link to="/signup">
+                  <button className="button is-primary">Sign Up</button>
+                </Link>
+              </div>
+            </Fragment>}
           </div>
         </nav>
       </div>
