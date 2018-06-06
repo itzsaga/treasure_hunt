@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Fuse from 'fuse.js'
+
 import { fuseOptions } from '../fuseOptions'
 import icon from '../images/th-icon.jpg'
 
@@ -51,4 +53,11 @@ class Header extends Component {
   }
 }
 
-export default Header
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+    currentUser: state.auth.currentUser,
+  }
+}
+
+export default connect(mapStateToProps)(Header)
