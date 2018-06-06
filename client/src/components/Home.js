@@ -1,46 +1,18 @@
 import React, { Component } from 'react'
-import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
-
-import { getAll, getLatest } from '../redux/actions/productActions'
 
 import Header from './Header'
 import Hero from './Hero'
 import ProductList from './ProductList'
 
 class Home extends Component {
-  state = {
-    latest: [],
-    all: [],
-    search: false,
-    searchResults: [],
-  }
-
-  componentDidMount() {
-    this.props.getLatest()
-    this.props.getAll()
-  }
-
-  searching = (bool) => {
-    this.setState({
-      search: bool
-    })
-  }
-
-  updateResults = (results) => {
-    this.setState({
-      searchResults: results
-    })
-  }
-
   render() {
     return (
       <div>
-        <Header products={this.props.products} searching={this.searching} updateResults={this.updateResults} />
-        {!this.state.search && <Hero />}
+        {!this.props.search && <Hero />}
         <div className="container">
-          {!this.state.search && <ProductList products={this.props.latest} searching={this.state.search} />}
-          {this.state.search && <ProductList products={this.state.searchResults} searching={this.state.search} />}
+          {!this.props.search && <ProductList products={this.props.latest} searching={this.props.search} />}
+          {this.props.search && <ProductList products={this.props.searchResults} searching={this.props.search} />}
         </div>
       </div>
     )
@@ -54,4 +26,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getAll, getLatest })(Home)
+export default connect(mapStateToProps, null)(Home)
