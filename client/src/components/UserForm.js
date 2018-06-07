@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { createUser, login } from '../redux/actions/userActions'
 
@@ -9,7 +9,7 @@ class UserForm extends Component {
     password: '',
   }
 
-  onSubmit = e => {
+  submit = e => {
     e.preventDefault()
     this.props.type === 'signup'
       ? this.props.createUser(this.state).then(() => {
@@ -44,7 +44,7 @@ class UserForm extends Component {
         </div> :
         null
     return (
-      <form onSubmit={this.submit}>
+      <Fragment>
         { name }
         <div className="field">
           <label className="label">E-mail</label>
@@ -72,10 +72,10 @@ class UserForm extends Component {
         </div>
         <div className="field">
           <div className="control">
-            <button onClick={this.onSubmit} className="button is-link">Submit</button>
+            <button onClick={this.submit} className="button is-link">Submit</button>
           </div>
         </div>
-      </form>
+      </Fragment>
     )
   }
 }
